@@ -2,8 +2,17 @@ package main
 
 import "fmt"
 
+func fib(n int) int{
+    if (n <= 1) {
+        return 1;
+    } else {
+        return n * fib(n - 1);
+    }
+}
+
 func main() {
-    fmt.Println("hello world");
-    fmt.Println("hello world");
-    fmt.Println("hello world");
+    var(
+        n int = 5;
+    )
+    fmt.Println(fib(n));
 }
