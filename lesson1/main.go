@@ -1,18 +1,16 @@
 package main
 
-import "fmt"
-
-func fib(n int) int{
-    if (n <= 1) {
-        return 1;
-    } else {
-        return n * fib(n - 1);
-    }
-}
+import (
+    "fmt"
+    "bufio"
+    "os"
+    "lesson1/lib"
+)
 
 func main() {
     var(
         n int = 5;
     )
-    fmt.Println(fib(n));
+    fmt.Println(Fib(n));
+    bufio.NewReader(os.Stdin).ReadBytes('\n');
 }
