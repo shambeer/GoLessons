@@ -4,26 +4,28 @@ import (
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/container"
+	"fyne.io/fyne/v2/dialog"
 	"fyne.io/fyne/v2/widget"
 )
 
-func InitApp() {
-	myApp := app.New()
-	myWindow := myApp.NewWindow("Hello")
-	myWindow.Resize(fyne.NewSize(400, 300))
-	myWindow.SetFixedSize(true)
+var (
+	myApp = app.New();
+	myWindow = myApp.NewWindow("ShambeerApp");
+)
 
-	name := widget.NewLabel("");
-	input := widget.NewEntry()
-	input.SetPlaceHolder("Введите ваше имя...")
+func messageBox() {
+			message := widget.NewLabel("67");
+			message.Alignment = fyne.TextAlignCenter;
+			dialog.ShowCustom("Внимание!", "Ok", message, myWindow);
+		}
+
+func InitApp() {
+	myWindow.Resize(fyne.NewSize(400, 300));
+	myWindow.SetFixedSize(true);
 
 	myWindow.SetContent(container.NewVBox(
-		input,
-		widget.NewButton("Отправить", func() {
-			name.SetText(input.Text)
-		}),
-		name,
-	))
+		widget.NewButton("Нажми меня", messageBox),
+	));
 
-	myWindow.ShowAndRun()
+	myWindow.ShowAndRun();
 }
